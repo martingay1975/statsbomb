@@ -1,0 +1,126 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\git\\statsbomb\\Statsbomb-Xg-Cmd\\Statsbomb-Xg-Cmd.csproj": {}
+  },
+  "projects": {
+    "C:\\git\\statsbomb\\Statsbomb-Xg-Cmd\\Statsbomb-Xg-Cmd.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\git\\statsbomb\\Statsbomb-Xg-Cmd\\Statsbomb-Xg-Cmd.csproj",
+        "projectName": "Statsbomb-Xg-Cmd",
+        "projectPath": "C:\\git\\statsbomb\\Statsbomb-Xg-Cmd\\Statsbomb-Xg-Cmd.csproj",
+        "packagesPath": "C:\\Users\\mgay\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\statsbomb\\Statsbomb-Xg-Cmd\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mgay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\git\\statsbomb\\StatsBomb-Xg\\StatsBomb-Xg.csproj": {
+                "projectPath": "C:\\git\\statsbomb\\StatsBomb-Xg\\StatsBomb-Xg.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\git\\statsbomb\\StatsBomb-Xg\\StatsBomb-Xg.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\git\\statsbomb\\StatsBomb-Xg\\StatsBomb-Xg.csproj",
+        "projectName": "StatsBomb-Xg",
+        "projectPath": "C:\\git\\statsbomb\\StatsBomb-Xg\\StatsBomb-Xg.csproj",
+        "packagesPath": "C:\\Users\\mgay\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\statsbomb\\StatsBomb-Xg\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mgay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Runtime.WindowsRuntime": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

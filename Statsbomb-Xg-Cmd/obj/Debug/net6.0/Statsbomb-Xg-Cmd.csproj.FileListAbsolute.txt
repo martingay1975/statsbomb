@@ -1,0 +1,5 @@
+C:\git\statsbomb\Statsbomb-Xg-Cmd\obj\Debug\net6.0\Statsbomb-Xg-Cmd.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\statsbomb\Statsbomb-Xg-Cmd\obj\Debug\net6.0\Statsbomb-Xg-Cmd.AssemblyInfoInputs.cache
+C:\git\statsbomb\Statsbomb-Xg-Cmd\obj\Debug\net6.0\Statsbomb-Xg-Cmd.AssemblyInfo.cs
+C:\git\statsbomb\Statsbomb-Xg-Cmd\obj\Debug\net6.0\Statsbomb-Xg-Cmd.csproj.CoreCompileInputs.cache
+C:\git\statsbomb\Statsbomb-Xg-Cmd\obj\Debug\net6.0\Statsbomb-Xg-Cmd.csproj.AssemblyReference.cache

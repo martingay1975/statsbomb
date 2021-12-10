@@ -1,13 +1,14 @@
-bower_components/
-node_modules/
-obj/
-bin/
-packages/
+**/bower_components/
+**/node_modules/
+**/obj/
+**/bin/
+**/packages/
 **/.local-chromium
 **/Xceed2
-.vscode/
-.vs/
-.idea/
-*.iml
+**/.vscode/
+**/.vs/
+**/.idea/
+**/*.iml
+**/*.vs
 
-npm-debug.log
+**/npm-debug.log

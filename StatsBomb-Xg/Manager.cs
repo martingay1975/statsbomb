@@ -8,7 +8,7 @@ namespace StatsBomb_Xg
     {
         public static IEnumerable<List<Root>> Init()
         {
-            foreach (var file in Directory.GetFiles(@"C:\git\statsbomb\data\events", "*.json"))
+            foreach (var file in Directory.GetFiles(@"C:\git\statsbomb-data\data\events", "*.json"))
             {
                 var json = File.OpenText(file).ReadToEnd();
                 var statsbombData = JsonSerializer.Deserialize<List<Root>>(json);

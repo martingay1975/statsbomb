@@ -87,7 +87,7 @@ namespace Statsbomb_Xg_Cmd
                     var shotsInZoneCount = shotsInZone.Count();
                     var goalsInZones = shotsInZone.Where(shot => shot.Outcome.Name == "Goal").Count();
                     var xGsInZone = shotsInZone.Sum(shot => shot.StatsbombXg);
-                    Console.WriteLine($"{zone.Key,-32} CompId:{(Competitions.Competition)competitionId,-20} Shots:{shotsInZoneCount,-5} Goals:{goalsInZones,-5} xG:{(xGsInZone / (double)shotsInZoneCount):0.####,-10} BenxG Per Shot:{((double)goalsInZones / (double)shotsInZoneCount):0.####}");
+                    Console.WriteLine($"{zone.Key,-32} CompId:{(Competitions.Competition)competitionId,-20} Shots:{shotsInZoneCount,-5} Goals:{goalsInZones,-5} xG:{(xGsInZone / (double)shotsInZoneCount):0.####} BenxG Per Shot:{((double)goalsInZones / (double)shotsInZoneCount):0.####}");
                 }
                 Console.WriteLine("");
             }

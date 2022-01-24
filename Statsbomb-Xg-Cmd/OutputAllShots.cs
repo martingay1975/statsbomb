@@ -5,7 +5,7 @@ namespace Statsbomb_Xg_Cmd
 {
     internal static class Output
     {
-        public static void AllShots(AllZones allZones, IEnumerable<List<Root>> statsbombList)
+        public static void AllShots(AllZones allZones, IEnumerable<List<EventsRoot>> statsbombList)
         {
             foreach (var statsbomb in statsbombList)
             {
@@ -36,16 +36,37 @@ namespace Statsbomb_Xg_Cmd
             }
         }
 
-        internal static void ZoneSummary(AllZones allZones, IEnumerable<List<Root>> statsbombList)
+        internal static void ZoneSummary(AllZones allZones, IEnumerable<EventsFile> eventsFiles, Dictionary<int, int> matchIdToCompetitionIdMap)
         {
-            var everyShot = new List<Root>();
+            var everyShot = new List<EventsRoot>();
             var counter = 0;
-            foreach (var statsbomb in statsbombList)
+            var competitionCount = new Dictionary<int, int>();
+            foreach (Competitions.Competition? v in Enum.GetValues(typeof(Competitions.Competition)))
+            {
+                competitionCount[(int)v.Value] = 0;
+            }
+
+            foreach (var eventFile in eventsFiles)
             {
                 counter++;
                 Console.Write("*");
-                everyShot.AddRange(statsbomb.Where(root => root.Shot != null));
+                var shotsInFile = eventFile.Events.Where(root => root.Shot != null);
+                if (!matchIdToCompetitionIdMap.TryGetValue(eventFile.MatchId, out var competitionId))
+                {
+                    competitionId = -1;
+                }
+                
+                foreach (var shot in shotsInFile)
+                {
+                    shot.CompetitionId = competitionId;
+                }
+
+                competitionCount[competitionId] = competitionCount[competitionId] + 1;
+
+                everyShot.AddRange(shotsInFile);
             }
+                      
+
             Console.WriteLine("");
             Console.WriteLine("");
 
@@ -58,12 +79,28 @@ namespace Statsbomb_Xg_Cmd
 
             foreach (var zone in shotGroupByZone)
             {
-                var shotsInZone = zone.Where(root => root.Shot != null).Select(root => root.Shot);
-                var shotsInZoneCount = shotsInZone.Count();
-                var goalsInZones = shotsInZone.Where(shot => shot.Outcome.Name == "Goal").Count();
-                var xGsInZone = shotsInZone.Sum(shot => shot.StatsbombXg);
-                Console.WriteLine($"{zone.Key,-32} Shots:{shotsInZoneCount, -5} Goals:{goalsInZones, -5} xG:{xGsInZone / (double)shotsInZoneCount, -20} BenxG Per Shot:{(double)goalsInZones / (double)shotsInZoneCount}");
+                var groupByCompetitionIdInZone = zone.GroupBy(root => root.CompetitionId);
+                foreach (var competitionIdInZone in groupByCompetitionIdInZone.OrderBy(f => f.Key))
+                {
+                    var competitionId = competitionIdInZone.First().CompetitionId;
+                    var shotsInZone = competitionIdInZone.Where(root => root.Shot != null).Select(root => root.Shot);
+                    var shotsInZoneCount = shotsInZone.Count();
+                    var goalsInZones = shotsInZone.Where(shot => shot.Outcome.Name == "Goal").Count();
+                    var xGsInZone = shotsInZone.Sum(shot => shot.StatsbombXg);
+                    Console.WriteLine($"{zone.Key,-32} CompId:{(Competitions.Competition)competitionId,-20} Shots:{shotsInZoneCount,-5} Goals:{goalsInZones,-5} xG:{(xGsInZone / (double)shotsInZoneCount):0.####,-10} BenxG Per Shot:{((double)goalsInZones / (double)shotsInZoneCount):0.####}");
+                }
+                Console.WriteLine("");
             }
+
+            Console.WriteLine($"============================");
+
+            foreach (var competitionKvp in competitionCount)
+            {
+                Console.WriteLine($"{(Competitions.Competition)competitionKvp.Key, -20}: {competitionKvp.Value}");
+            }
+
+            Console.WriteLine($"Games Total         :{counter}");
+            Console.WriteLine($"Shots Total         :{everyShot.Count()}");
         }
     }
 }

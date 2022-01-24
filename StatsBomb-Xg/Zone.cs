@@ -29,7 +29,7 @@ namespace StatsBomb_Xg
         {
             foreach (var rect in Rectangles)
             {
-                Console.WriteLine($"{Label} top left: {rect.X},{rect.Y} bottom right: {rect.X + rect.Width},{rect.Y + rect.Height}");
+                Console.WriteLine($"{Label} top left: {rect.X:0.##},{rect.Y:0.##} bottom right: {rect.X + rect.Width:0.##},{rect.Y + rect.Height:0.##}");
             }
         }
     }
